@@ -1,54 +1,59 @@
 <template>
 
 
-
-
    <nav class="navbar navbar-expand-lg bg-body-tertiary">
       <div class="container d-flex justify-content-between align-items-center">
+         <!-- Brand on the Left -->
+         <a class="navbar-brand" href="#">Tourist</a>
 
+         <!-- Toggler Button for Small Screens -->
+         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+         </button>
 
-         <a class="navbar-brand me-3" href="#">Tourist</a>
+         <!-- Collapsible Content Aligned Right -->
+         <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+            <div class="d-flex flex-column flex-lg-row gap-3 align-items-center">
+               <!-- Tabs Component -->
+               <HeaderComp class="tabs" :tabs="tabs" :selectedTab="selectedTab"
+                  @update:selectedTab="updateSelectedTab" />
 
+               <!-- Dropdown Menu -->
+               <div class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                     aria-expanded="false">
+                     Dropdown
+                  </a>
+                  <ul class="dropdown-menu custom-dropdown-menu">
+                     <li><router-link to="/tour/destination" class="dropdown-item">Destination</router-link></li>
+                     <li><router-link to="/tour/booking" class="dropdown-item">Booking</router-link></li>
+                     <li><router-link to="/tour/travelguides" class="dropdown-item">Travel Guide</router-link></li>
+                     <li><router-link to="/tour/testimonial" class="dropdown-item">Testimonial</router-link></li>
+                     <li><router-link to="/tour/error" class="dropdown-item">404 Error</router-link></li>
+                  </ul>
+               </div>
 
-
-
-
-         <div class="d-flex gap-2 align-items-center">
-            <HeaderComp class="tabs me-3" :tabs="tabs" :selectedTab="selectedTab"
-               @update:selectedTab="updateSelectedTab" />
-            <div class="nav-item dropdown me-3">
-               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                  aria-expanded="false">
-                  Dropdown
-               </a>
-               <ul class="dropdown-menu custom-dropdown-menu">
-                  <li><router-link to="/tour/destination" class="dropdown-item">Destination</router-link></li>
-                  <li><router-link to="/tour/booking" class="dropdown-item">Booking</router-link></li>
-                  <li><router-link to="/tour/travelguides" class="dropdown-item">Travel Guide</router-link></li>
-                  <li><router-link to="/tour/testimonial" class="dropdown-item">Testimonial</router-link></li>
-                  <li><router-link to="/tour/error" class="dropdown-item">404 Error</router-link></li>
-               </ul>
+               <!-- Register Button -->
+               <button type="button" class="btn btn-success">Register</button>
             </div>
-            <button type="button" class="btn btn-success ms-3">Register</button>
          </div>
-
-
-
-
-
       </div>
-
    </nav>
 
+   <!-- Display Selected Tab Name -->
    <div class="selected-tab-display mt-4 text-center" v-if="selectedTab">
       <h2 class="selected-tab-text text-dark">{{ selectedTab.name }}</h2>
    </div>
+
+   <!-- Search Bar -->
    <div class="position-relative w-50 mx-auto my-4">
       <input class="border-1 rounded-pill w-100 py-3 ps-4 pe-5" type="text" placeholder="Search">
       <button type="button" class="btn btn-primary rounded-pill py-2 px-4 position-absolute top-0 end-0 me-2 border-0"
          style="margin-top: 8px;">Search</button>
    </div>
 
+   <!-- Breadcrumb Navigation -->
    <nav aria-label="breadcrumb" class="text-center">
       <ol class="breadcrumb justify-content-center">
          <li class="breadcrumb-item"><router-link to="/main/home">Home</router-link></li>
@@ -57,6 +62,10 @@
          </li>
       </ol>
    </nav>
+
+
+
+
 
 
 
