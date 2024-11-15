@@ -1,6 +1,8 @@
 <template>
-   <div class="container mt-5 mb-5 ">
-      <div class="text-center">
+
+   <!-- Packages Section -->
+   <div class="container mt-5 mb-5" data-aos="fade-up" data-aos-duration="1000">
+      <div class="text-center" data-aos="fade-down" data-aos-duration="1000">
          <h6 class="success">Packages</h6>
          <h2>Awesome Packages</h2>
       </div>
@@ -9,10 +11,11 @@
       </div>
    </div>
 
-   <div class="container p-5 booking">
+   <!-- Booking Section -->
+   <div class="container p-5 booking" data-aos="fade-up" data-aos-duration="1200">
       <div class="row">
          <!-- Booking Info Section -->
-         <div class="col-lg-6 mb-4 mb-lg-0">
+         <div class="col-lg-6 mb-4 mb-lg-0" data-aos="fade-right" data-aos-duration="1200">
             <h4>Booking</h4>
             <h2>Online Booking</h2>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis labore, voluptatum atque est
@@ -24,7 +27,7 @@
          </div>
 
          <!-- Booking Form Section -->
-         <div class="col-lg-6">
+         <div class="col-lg-6" data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200">
             <h2>Book a Tour</h2>
             <div class="row g-2">
                <div class="col-lg-6">
@@ -73,16 +76,16 @@
 
             <div class="row mt-3">
                <div class="col-lg-12">
-                  <button class="btn btn-primary w-100">Book Now</button>
+                  <button class="btn btn-primary w-100" data-aos="zoom-in" data-aos-delay="600">Book Now</button>
                </div>
             </div>
          </div>
       </div>
    </div>
 
-
-   <div class="container mt-5 mb-5 ">
-      <div class="text-center">
+   <!-- Process Section -->
+   <div class="container mt-5 mb-5" data-aos="fade-up" data-aos-duration="1200">
+      <div class="text-center" data-aos="fade-down" data-aos-duration="1000">
          <h6 class="success">Process</h6>
          <h2>3 Easy Steps</h2>
       </div>
@@ -90,11 +93,14 @@
          <ProcessCard :processprop="processcards" />
       </div>
    </div>
+
+
    <!-- <PackageCard :packprice="packcard" /> -->
 </template>
 <script>
 import PackageCard from '@/shared/reuseable/PackageCard.vue';
 import ProcessCard from '@/shared/reuseable/ProcessCard.vue';
+
 
 export default {
    components: {
@@ -116,7 +122,8 @@ export default {
             { processtitle: "Fly Today", processdesc: "Tempor erat elitr rebum clita dolor diam ipsum sit diam amet diam eos erat ipsum et lorem et sit sed stet lorem sit" }
          ]
       }
-   }
+   },
+
 }
 // import { ref } from 'vue';
 // import PackageCard from '@/shared/reuseable/PackageCard.vue';

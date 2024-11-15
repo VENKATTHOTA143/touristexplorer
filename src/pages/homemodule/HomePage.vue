@@ -1,10 +1,10 @@
 <template>
-   <div class="container mt-5 fade-in-up">
+   <div class="container mt-5 fade-in-up" data-aos="fade-up">
       <div class="row">
-         <div class="col-lg-6 mb-4 mb-lg-0">
+         <div class="col-lg-6 mb-4 mb-lg-0" data-aos="fade-right">
             <img src="../../assets/destination-3.jpg" alt="About us image" class="img-fluid h-100">
          </div>
-         <div class="col-lg-6">
+         <div class="col-lg-6" data-aos="fade-left">
             <h4 class="section-title bg-white text-start " style="color: #86B817; ">About Us</h4>
             <h2>Welcome to <span>Tourist</span></h2>
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa, in sunt. Error suscipit dignissimos
@@ -13,11 +13,11 @@
                consectetur perspiciatis inventore nostrum. Architecto maiores rem pariatur? Provident sequi ex ducimus
                earum eius obcaecati et!</p>
 
-            <div class="row g-3">
-               <div class="col-lg-6">
+            <div class="row g-3" data-aos="zoom-in">
+               <div class="col-lg-6" data-aos="flip-up">
                   <p>First Class Flights</p>
                </div>
-               <div class="col-lg-6">
+               <div class="col-lg-6" data-aos="flip-down">
                   <p>Hand Picked Hotels</p>
                </div>
                <div class="col-lg-6">
@@ -33,61 +33,72 @@
                   <p>24/7 Service</p>
                </div>
             </div>
-            <a class="btn  text-uppercase py-3 px-5 mt-2" style="background-color: #86B817;">Read More</a>
+            <a class="btn  text-uppercase py-3 px-5 mt-2" style="background-color: #86B817;" data-aos="fade-up">Read
+               More</a>
          </div>
       </div>
    </div>
 
-   <div class="container mt-5 mb-5 ">
-      <div class="text-center">
-         <h6 style="color: #86B817;">Services</h6>
-         <h2>Our Services</h2>
+   <div class="container mt-5 mb-5">
+      <div class="text-center" data-aos="fade-up" data-aos-duration="800">
+         <!-- Services Heading with Side Lines -->
+         <div class="d-flex justify-content-center">
+            <span class=" side_line2 bg-white" style="color: #86B817;">Services</span>
+         </div>
+         <!-- <h6  style="color: #86B817;">Services</h6> -->
+         <h2 class="mt-2">Our Services</h2>
+
       </div>
-      <div>
+      <div data-aos="zoom-in" data-aos-duration="800">
          <CardComp :cardprop="cards" />
       </div>
-
    </div>
 
 
+
+
    <div class="container g-4">
-      <div class="text-center mb-4">
+      <div class="text-center mb-4" data-aos="fade-up" data-aos-duration="800">
          <h6 style="color: #86B817;">Destination</h6>
          <h2>Popular Destinations</h2>
       </div>
       <div class="row">
-         <div class="col-lg-6 mb-4 mb-lg-0">
+         <!-- Left Column with Image and Thumbnails -->
+         <div class="col-lg-6 mb-4 mb-lg-0" data-aos="fade-right" data-aos-delay="200" data-aos-duration="1200">
             <img src="../../assets/destination-1.jpg" alt="Main destination view" class="img-fluid w-100">
             <div class="row mt-4">
-               <div class="col-6">
+               <div class="col-6" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000">
                   <img src="../../assets/destination-2.jpg" alt="Secondary destination view 1" class="img-fluid w-100">
                </div>
-               <div class="col-6">
+               <div class="col-6" data-aos="fade-up" data-aos-delay="600" data-aos-duration="1000">
                   <img src="../../assets/1000_F_289840945_ZqEJkoDBAw6ltmSv97p4ZXPI2W0eufPJ.jpg"
                      alt="Secondary destination view 2" class="img-fluid w-100">
                </div>
             </div>
          </div>
-         <div class="col-lg-6">
+         <!-- Right Column with Single Image -->
+         <div class="col-lg-6" data-aos="fade-left" data-aos-delay="300" data-aos-duration="1200">
             <img src="../../assets/destination-4.jpg" alt="Alternative destination view" class="img-fluid w-100">
          </div>
       </div>
    </div>
 
 
-   <div class="container mt-5 mb-5 ">
-      <div class="text-center">
+
+   <div class="container mt-5 mb-5" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
+      <div class="text-center" data-aos="fade-up" data-aos-delay="300" data-aos-duration="800">
          <h6 style="color: #86B817;">Packages</h6>
-         <h2>Awesome Packages</h2>
+         <h2 class="mt-2">Awesome Packages</h2>
       </div>
-      <div>
+      <div data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000">
          <PackageCard :packprice="packcard" />
       </div>
    </div>
-   <div class="container p-5 booking">
+
+   <div class="container p-5 booking" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
       <div class="row">
          <!-- Booking Info Section -->
-         <div class="col-lg-6 mb-4 mb-lg-0">
+         <div class="col-lg-6 mb-4 mb-lg-0" data-aos="fade-right" data-aos-delay="300" data-aos-duration="1000">
             <h4>Booking</h4>
             <h2>Online Booking</h2>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis labore, voluptatum atque est
@@ -99,17 +110,17 @@
          </div>
 
          <!-- Booking Form Section -->
-         <div class="col-lg-6">
+         <div class="col-lg-6" data-aos="fade-left" data-aos-delay="300" data-aos-duration="1000">
             <h2>Book a Tour</h2>
             <div class="row g-2">
-               <div class="col-lg-6">
+               <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400" data-aos-duration="800">
                   <div class="form-floating">
                      <input type="email" class="form-control" id="emailInput" placeholder="name@example.com"
                         value="mdo@example.com">
                      <label for="emailInput">Email address</label>
                   </div>
                </div>
-               <div class="col-lg-6">
+               <div class="col-lg-6" data-aos="fade-up" data-aos-delay="500" data-aos-duration="800">
                   <div class="form-floating">
                      <input type="text" class="form-control" id="nameInput" placeholder="Full Name">
                      <label for="nameInput">Full Name</label>
@@ -118,13 +129,13 @@
             </div>
 
             <div class="row mt-2 g-2">
-               <div class="col-lg-6">
+               <div class="col-lg-6" data-aos="fade-up" data-aos-delay="600" data-aos-duration="800">
                   <div class="form-floating">
                      <input type="date" class="form-control" id="dateInput" placeholder="Select a date">
                      <label for="dateInput">Select a date</label>
                   </div>
                </div>
-               <div class="col-lg-6">
+               <div class="col-lg-6" data-aos="fade-up" data-aos-delay="700" data-aos-duration="800">
                   <div class="form-floating">
                      <select class="form-select" id="destinationSelect">
                         <option selected>Destination 1</option>
@@ -136,7 +147,7 @@
                </div>
             </div>
 
-            <div class="row mt-2">
+            <div class="row mt-2" data-aos="fade-up" data-aos-delay="800" data-aos-duration="800">
                <div class="col-lg-12">
                   <div class="form-floating">
                      <textarea class="form-control" placeholder="Leave a comment here" id="specialRequestTextarea"
@@ -146,7 +157,7 @@
                </div>
             </div>
 
-            <div class="row mt-3">
+            <div class="row mt-3" data-aos="fade-up" data-aos-delay="900" data-aos-duration="800">
                <div class="col-lg-12">
                   <button class="btn btn-primary w-100">Book Now</button>
                </div>
@@ -156,34 +167,37 @@
    </div>
 
 
-   <div class="container mt-5 mb-5 ">
+   <div class="container mt-5 mb-5" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
       <div class="text-center">
          <h6 style="color: #86B817;">Process</h6>
-         <h2>3 Easy Steps</h2>
+         <h2 class="mt-2">3 Easy Steps</h2>
       </div>
-      <div>
+      <div data-aos="fade-up" data-aos-delay="300" data-aos-duration="1200">
          <ProcessCard :processprop="processcards" />
       </div>
    </div>
-   <div class="container mt-5 mb-5 ">
+
+   <div class="container mt-5 mb-5" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
       <div class="text-center">
          <h6 style="color: #86B817;">Travel Guide</h6>
-         <h2>Meet Our Guide</h2>
+         <h2 class="mt-2">Meet Our Guide</h2>
       </div>
-      <div>
+      <div data-aos="fade-up" data-aos-delay="300" data-aos-duration="1200">
          <GuideCard :guideprop="guidecards" />
       </div>
    </div>
 
-   <div class="container mt-5 mb-5 ">
+
+   <div class="container mt-5 mb-5" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
       <div class="text-center">
          <h6 style="color: #86B817;">Testimonial</h6>
-         <h2>Our Clients Say !!!</h2>
+         <h2 class="mt-2">Our Clients Say !!!</h2>
       </div>
-      <div>
+      <div data-aos="fade-up" data-aos-delay="300" data-aos-duration="1200">
          <ClientCard :clientprop="clientcards" />
       </div>
    </div>
+
 
 
 
@@ -197,6 +211,8 @@ import GuideCard from '@/shared/reuseable/GuideCard.vue';
 import PackageCard from '@/shared/reuseable/PackageCard.vue';
 
 import ProcessCard from '@/shared/reuseable/ProcessCard.vue';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 
 export default {
@@ -261,12 +277,33 @@ export default {
             }
          ]
       };
+   },
+   mounted() {
+      AOS.init({
+         duration: 1000,  // Animation duration in milliseconds
+         easing: 'ease-in-out',  // Easing function for animations
+         once: true,  // Animation happens only once on scroll
+         anchorPlacement: 'top-bottom',  // Defines which position of the element to trigger animation
+      });
    }
+
 }
 </script>
 <style>
 .booking {
    background-image: url("../../assets/booking-bg.jpg");
+
+}
+
+.fade-in-up {
+   opacity: 0;
+   transform: translateY(30px);
+   transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.side_line2 {
+   width: 200px;
+   margin: auto;
 
 }
 </style>

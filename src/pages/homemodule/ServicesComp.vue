@@ -1,28 +1,30 @@
 <template>
-   <div class="container mt-5 mb-5 ">
-      <div class="text-center">
+   <div class="container mt-5 mb-5" data-aos="fade-up" data-aos-duration="1000">
+      <div class="text-center" data-aos="fade-down" data-aos-duration="1000">
          <h6 class="success">Services</h6>
          <h2>Our Services</h2>
       </div>
       <div>
-         <CardComp :cardprop="cards" />
+         <CardComp :cardprop="cards" data-aos="zoom-in" data-aos-duration="1500" />
       </div>
-
    </div>
 
-   <div class="container mt-5 mb-5 ">
-      <div class="text-center">
+   <!-- Testimonial Section -->
+   <div class="container mt-5 mb-5" data-aos="fade-up" data-aos-duration="1000">
+      <div class="text-center" data-aos="fade-down" data-aos-duration="1000">
          <h6 class="success">Testimonial</h6>
          <h2>Our Clients Say !!!</h2>
       </div>
       <div>
-         <ClientCard :clientprop="clientcards" />
+         <ClientCard :clientprop="clientcards" data-aos="zoom-in" data-aos-duration="1500" />
       </div>
    </div>
 </template>
 <script>
 import CardComp from '@/shared/reuseable/CardComp.vue';
 import ClientCard from '@/shared/reuseable/ClientCard.vue';
+import AOS from 'aos';
+import 'aos/dist/aos.css'; // Import AOS styles
 
 export default {
    components: {
@@ -53,6 +55,37 @@ export default {
 
          ]
       }
-   }
+   },
+   mounted() {
+      AOS.init({
+         duration: 1000, // Animation duration
+         easing: 'ease', // Easing for the animations
+         once: true // Trigger animations only once when the element comes into the viewport
+      });
+   },
 }
 </script>
+
+<style scoped>
+[data-aos] {
+   opacity: 0;
+   transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+[data-aos].aos-animate {
+   opacity: 1;
+   transform: translateY(0);
+}
+
+[data-aos="fade-up"] {
+   transform: translateY(30px);
+}
+
+[data-aos="fade-down"] {
+   transform: translateY(-30px);
+}
+
+[data-aos="zoom-in"] {
+   transform: scale(0.8);
+}
+</style>

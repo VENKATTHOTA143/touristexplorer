@@ -1,7 +1,7 @@
 <template>
 
 
-   <nav class="navbar navbar-expand-lg bg-body-tertiary">
+   <nav class="navbar navbar-expand-lg bg-body-tertiary" data-aos="fade-down" data-aos-duration="1000">
       <div class="container d-flex justify-content-between align-items-center">
          <!-- Brand on the Left -->
          <a class="navbar-brand" href="#">Tourist</a>
@@ -20,7 +20,7 @@
                   @update:selectedTab="updateSelectedTab" />
 
                <!-- Dropdown Menu -->
-               <div class="nav-item dropdown">
+               <div class="nav-item dropdown" data-aos="fade-in" data-aos-delay="200">
                   <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                      aria-expanded="false">
                      Dropdown
@@ -35,33 +35,38 @@
                </div>
 
                <!-- Register Button -->
-               <button type="button" class="btn btn-success">Register</button>
+               <button type="button" class="btn btn-success" data-aos="zoom-in" data-aos-delay="400">Register</button>
             </div>
          </div>
       </div>
    </nav>
 
-   <!-- Display Selected Tab Name -->
+   <!-- Display Selected Tab Name with Fade-in -->
    <div class="selected-tab-display mt-4 text-center" v-if="selectedTab">
-      <h2 class="selected-tab-text text-dark">{{ selectedTab.name }}</h2>
+      <transition name="fade">
+         <h2 class="selected-tab-text text-dark">{{ selectedTab.name }}</h2>
+      </transition>
    </div>
 
-   <!-- Search Bar -->
-   <div class="position-relative w-50 mx-auto my-4">
-      <input class="border-1 rounded-pill w-100 py-3 ps-4 pe-5" type="text" placeholder="Search">
+   <!-- Search Bar with Shadow -->
+   <div class="position-relative w-50 mx-auto my-4 search-bar" data-aos="fade-up">
+      <input class="border-1 rounded-pill w-100 py-3 ps-4 pe-5 shadow-sm" type="text" placeholder="Search">
       <button type="button" class="btn btn-primary rounded-pill py-2 px-4 position-absolute top-0 end-0 me-2 border-0"
          style="margin-top: 8px;">Search</button>
    </div>
 
-   <!-- Breadcrumb Navigation -->
+   <!-- Breadcrumb Navigation with Transition -->
    <nav aria-label="breadcrumb" class="text-center">
-      <ol class="breadcrumb justify-content-center">
-         <li class="breadcrumb-item"><router-link to="/main/home">Home</router-link></li>
-         <li class="breadcrumb-item active" v-if="selectedTab && selectedTab.name !== 'Home'">
-            {{ selectedTab.name }}
-         </li>
-      </ol>
+      <transition name="breadcrumb">
+         <ol class="breadcrumb justify-content-center">
+            <li class="breadcrumb-item"><router-link to="/main/home">Home</router-link></li>
+            <li class="breadcrumb-item active" v-if="selectedTab && selectedTab.name !== 'Home'">
+               {{ selectedTab.name }}
+            </li>
+         </ol>
+      </transition>
    </nav>
+
 
 
 
@@ -144,7 +149,14 @@ export default {
       updateSelectedTab(newTab) {
          this.selectedTab = newTab;
       }
+   },
+   created() {
+      const savedTab = localStorage.getItem('selectedTab');
+      if (savedTab) {
+         this.selectedTab = JSON.parse(savedTab);
+      }
    }
+
 };
 </script>
 
@@ -185,6 +197,56 @@ export default {
    color: white;
    border-radius: 6px;
 }
+
+/* Fade transition for Selected Tab */
+.fade-enter-active,
+.fade-leave-active {
+   transition: opacity 0.5s;
+}
+
+.fade-enter,
+.fade-leave-to {
+   opacity: 0;
+}
+
+/* Breadcrumb transition */
+.breadcrumb-enter-active,
+.breadcrumb-leave-active {
+   transition: opacity 0.5s, transform 0.3s;
+}
+
+/* Ensure navbar and dropdown have a higher z-index */
+.navbar {
+   position: relative;
+   z-index: 10;
+   /* Adjust this value if necessary */
+}
+
+.dropdown-menu {
+   position: absolute;
+   z-index: 20;
+   /* Higher than the navbar and search bar */
+}
+
+/* Lower z-index for the search bar */
+.search-bar {
+   position: relative;
+   z-index: 5;
+}
+
+
+.breadcrumb-enter,
+.breadcrumb-leave-to {
+   opacity: 0;
+   transform: translateY(10px);
+}
+
+/* Active Tab Highlight */
+.tabs .active-tab {
+   border-bottom: 2px solid #86B817;
+   font-weight: bold;
+}
+
 
 
 
