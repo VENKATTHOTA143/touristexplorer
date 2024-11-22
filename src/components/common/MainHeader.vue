@@ -3,23 +3,23 @@
 
    <nav class="navbar navbar-expand-lg bg-body-tertiary" data-aos="fade-down" data-aos-duration="1000">
       <div class="container d-flex justify-content-between align-items-center">
-         <!-- Brand on the Left -->
+
          <a class="navbar-brand" href="#">Tourist</a>
 
-         <!-- Toggler Button for Small Screens -->
+
          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
          </button>
 
-         <!-- Collapsible Content Aligned Right -->
+
          <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
             <div class="d-flex flex-column flex-lg-row gap-3 align-items-center">
-               <!-- Tabs Component -->
+
                <HeaderComp class="tabs" :tabs="tabs" :selectedTab="selectedTab"
                   @update:selectedTab="updateSelectedTab" />
 
-               <!-- Dropdown Menu -->
+
                <div class="nav-item dropdown" data-aos="fade-in" data-aos-delay="200">
                   <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                      aria-expanded="false">
@@ -34,28 +34,40 @@
                   </ul>
                </div>
 
-               <!-- Register Button -->
-               <button type="button" class="btn btn-success" data-aos="zoom-in" data-aos-delay="400">Register</button>
+
+               <div>
+                  <!-- Login Button -->
+                  <button v-if="!isLoggedIn" type="button" class="btn btn-success" data-aos="zoom-in"
+                     data-aos-delay="400">
+                     <router-link to="/login">Login</router-link>
+                  </button>
+                  <!-- Logout Button -->
+                  <button v-if="isLoggedIn" type="button" class="btn btn-danger" data-aos="zoom-in" data-aos-delay="400"
+                     @click="logout">
+                     Logout
+                  </button>
+
+               </div>
             </div>
          </div>
       </div>
    </nav>
 
-   <!-- Display Selected Tab Name with Fade-in -->
+
    <div class="selected-tab-display mt-4 text-center" v-if="selectedTab">
       <transition name="fade">
          <h2 class="selected-tab-text text-dark">{{ selectedTab.name }}</h2>
       </transition>
    </div>
 
-   <!-- Search Bar with Shadow -->
+
    <div class="position-relative w-50 mx-auto my-4 search-bar" data-aos="fade-up">
       <input class="border-1 rounded-pill w-100 py-3 ps-4 pe-5 shadow-sm" type="text" placeholder="Search">
       <button type="button" class="btn btn-primary rounded-pill py-2 px-4 position-absolute top-0 end-0 me-2 border-0"
          style="margin-top: 8px;">Search</button>
    </div>
 
-   <!-- Breadcrumb Navigation with Transition -->
+
    <nav aria-label="breadcrumb" class="text-center">
       <transition name="breadcrumb">
          <ol class="breadcrumb justify-content-center">
@@ -66,18 +78,6 @@
          </ol>
       </transition>
    </nav>
-
-
-
-
-
-
-
-
-
-
-
-
 
 
    <!-- 
@@ -145,10 +145,25 @@ export default {
          ],
       };
    },
+   computed: {
+      isLoggedIn() {
+         // Check for the presence of userDetails in localStorage
+         return localStorage.getItem("userDetails") !== null;
+      }
+   },
    methods: {
       updateSelectedTab(newTab) {
          this.selectedTab = newTab;
+      },
+      logout() {
+         // Correctly remove the keys
+         localStorage.removeItem("userDetails");
+         localStorage.removeItem("authToken");
+
+         // Redirect to login page
+         this.$router.push({ path: '/login' });
       }
+
    },
    created() {
       const savedTab = localStorage.getItem('selectedTab');

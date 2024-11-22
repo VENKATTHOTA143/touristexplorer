@@ -54,16 +54,13 @@
       </div>
    </div>
 
-
-
-
    <div class="container g-4">
       <div class="text-center mb-4" data-aos="fade-up" data-aos-duration="800">
          <h6 style="color: #86B817;">Destination</h6>
          <h2>Popular Destinations</h2>
       </div>
       <div class="row">
-         <!-- Left Column with Image and Thumbnails -->
+
          <div class="col-lg-6 mb-4 mb-lg-0" data-aos="fade-right" data-aos-delay="200" data-aos-duration="1200">
             <img src="../../assets/destination-1.jpg" alt="Main destination view" class="img-fluid w-100">
             <div class="row mt-4">
@@ -76,14 +73,12 @@
                </div>
             </div>
          </div>
-         <!-- Right Column with Single Image -->
+
          <div class="col-lg-6" data-aos="fade-left" data-aos-delay="300" data-aos-duration="1200">
             <img src="../../assets/destination-4.jpg" alt="Alternative destination view" class="img-fluid w-100">
          </div>
       </div>
    </div>
-
-
 
    <div class="container mt-5 mb-5" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
       <div class="text-center" data-aos="fade-up" data-aos-delay="300" data-aos-duration="800">
@@ -97,7 +92,7 @@
 
    <div class="container p-5 booking" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
       <div class="row">
-         <!-- Booking Info Section -->
+
          <div class="col-lg-6 mb-4 mb-lg-0" data-aos="fade-right" data-aos-delay="300" data-aos-duration="1000">
             <h4>Booking</h4>
             <h2>Online Booking</h2>
@@ -109,7 +104,7 @@
             <button class="btn btn-primary mt-2">Read More</button>
          </div>
 
-         <!-- Booking Form Section -->
+
          <div class="col-lg-6" data-aos="fade-left" data-aos-delay="300" data-aos-duration="1000">
             <h2>Book a Tour</h2>
             <div class="row g-2">
@@ -292,7 +287,9 @@ export default {
 <style>
 .booking {
    background-image: url("../../assets/booking-bg.jpg");
-
+   background-color: #00000033;
+   /* Semi-transparent black */
+   border-radius: 8px;
 }
 
 .fade-in-up {
@@ -304,6 +301,11 @@ export default {
 .side_line2 {
    width: 200px;
    margin: auto;
+   color: #2575fc;
+}
 
+h2,
+h4 {
+   color: #fff;
 }
 </style>

@@ -10,34 +10,42 @@ const homeroutes = [{
    path: "/main",
    component: MainPage,
    redirect: "/main/home",
+   meta: { requiresAuth: true },
    children: [{
-      path: "about",
-      component: AboutComp
+      path: "home",
+      name: "home",
+      component: HomePage,
    },
    {
-      path: "home",
-      component: HomePage
+      path: "about",
+      component: AboutComp,
+      meta: { requiresAuth: true },
    },
    {
       path: "contact",
-      component: ContactComp
+      component: ContactComp,
+      meta: { requiresAuth: true },
    },
    {
       path: "packages",
-      component: PackagesComp
+      component: PackagesComp,
+      meta: { requiresAuth: true },
    },
    {
       path: "register",
-      component: RegisterComp
+      component: RegisterComp,
+      meta: { requiresAuth: true },
    },
    {
       path: "services",
-      component: ServicesComp
-   }
-   ]
-}];
+      component: ServicesComp,
+      meta: { requiresAuth: true },
+   },
+   ],
+},];
 
 export default homeroutes;
+
 
 
 // import AboutComp from "./AboutComp.vue"
